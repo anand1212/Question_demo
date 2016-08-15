@@ -56,19 +56,26 @@ public class MainActivity extends Activity {
             }
         });
 //        final int checked = ans_grop.getCheckedRadioButtonId();
-
+         int id= ans_grop.getCheckedRadioButtonId();
         answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                // get selected radio button from radioGroup
                 int selectedId = ans_grop.getCheckedRadioButtonId();
+                // find which radioButton is checked by id
 
-                // find the radiobutton by returned id
-                ans_grop = (RadioGroup) findViewById(selectedId);
-
-                Toast.makeText(MainActivity.this,
-                        ans_grop.getText(), Toast.LENGTH_SHORT).show();
+                if(selectedId == rad_btn1.getId()) {
+                    txt_answer.setText("You chose 'Anandiben Patel' option");
+                } else if(selectedId == rad_btn2.getId()) {
+                    txt_answer.setText("You chose 'Narendra Modi' option");
+                }
+                else if(selectedId == rad_btn3.getId()) {
+                    txt_answer.setText("You chose 'Vijay Rupani' option");
+                }
+                else
+                {
+                    txt_answer.setText("You chose 'Daud Ebrahim' option");
+                }
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
