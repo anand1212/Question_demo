@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.qtm_android.question_demo.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_paper"
+        android:text="Test Paper"
+        android:layout_marginLeft="120dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" who is chief minister of gujarat ,now ?"
+        android:id="@+id/question_1"
+        android:textSize="20dp"
+        android:layout_below="@+id/test_paper"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/answer_group"
+        android:layout_below="@+id/question_1"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AnandiBen Patel"
+            android:id="@+id/radioButton"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Narendra Modi"
+            android:id="@+id/radioButton2"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viajy Rupani"
+            android:id="@+id/radioButton3"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daud Ebrahim"
+            android:id="@+id/radioButton4"
+            android:layout_gravity="center_horizontal" />
+    </RadioGroup>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_ans"
+        android:text="Answer"
+        android:layout_below="@id/answer_group"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Answer is :"
+        android:id="@+id/tet"
+        android:layout_below="@+id/btn_ans"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_next"
+        android:layout_below="@+id/answer_group"
+        android:text="Next"
+        android:layout_toRightOf="@id/btn_ans" />
+
+</RelativeLayout>
