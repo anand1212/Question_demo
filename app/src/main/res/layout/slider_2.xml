@@ -81,5 +81,11 @@
         android:layout_below="@+id/answer_group2"
         android:text="Next"
         android:layout_toRightOf="@id/btn_ans2" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mark2"
+        android:layout_below="@id/tet2"
+        android:text="marks"/>
 
 </RelativeLayout>

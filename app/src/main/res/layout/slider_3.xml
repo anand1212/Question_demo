@@ -79,8 +79,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/score"
-        android:layout_below="@id/answer_group3"
+        android:layout_below="@id/btn_ans3"
         android:text="MARKS"
         android:layout_toRightOf="@id/btn_ans3"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next3"
+        android:layout_below="@id/answer_group3"
+        android:text="NEXT"
+        android:layout_toRightOf="@id/btn_ans3"/>
 </RelativeLayout>

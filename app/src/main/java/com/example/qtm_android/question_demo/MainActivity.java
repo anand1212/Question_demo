@@ -1,7 +1,6 @@
 package com.example.qtm_android.question_demo;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,14 +8,20 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+
 
 public class MainActivity extends Activity {
 
     RadioGroup ans_grop;
     RadioButton rad_btn1, rad_btn2, rad_btn3,rad_btn4;
-    Button answer, next;
+    Button answer, next,mark1;
     TextView txt_answer;
+    int total =0;
 
+    int new2total;
+  //  int new3total;
+    int new4total;
 
 
     @Override
@@ -32,61 +37,102 @@ public class MainActivity extends Activity {
         answer = (Button) findViewById(R.id.btn_ans);
         txt_answer = (TextView) findViewById(R.id.tet);
         next = (Button) findViewById(R.id.btn_next);
+        mark1 = (Button) findViewById(R.id.mark1);
 
-        ans_grop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+
+//        final int checked = ans_grop.getCheckedRadioButtonId();
+ //       final int id= ans_grop.getCheckedRadioButtonId();
+ //       answer.setOnClickListener(new View.OnClickListener() {
+ //           @Override
+  //          public void onClick(View v) {
+
+  //              RadioButton rb = (RadioButton) ans_grop.findViewById(ans_grop.getCheckedRadioButtonId());
+//                Toast.makeText(MainActivity.this, rb.getText(), Toast.LENGTH_SHORT).show();
+//            }
+ //       });
+
+        ans_grop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
 
-                if(checkedId == R.id.radioButton) {
-                    Toast.makeText(getApplicationContext(), "AnandiBen Patel",
-                            Toast.LENGTH_SHORT).show();
-                } else if(checkedId == R.id.radioButton2) {
-                    Toast.makeText(getApplicationContext(), "Narendra Modi",
-                            Toast.LENGTH_SHORT).show();
+
+                    case R.id.radioButton:
+                        // do operations specific to this selection
+                        int new1total = 0;
+                        Toast.makeText(MainActivity.this,"False Answer",Toast.LENGTH_LONG).show();
+                        total =total + 0;
+                        Intent intent1 = new Intent(MainActivity.this, Slider2.class);
+                        intent1.putExtra("indi1", new1total);
+                        intent1.putExtra("marks", total);
+                        startActivity(intent1);
+
+                        break;
+
+                    case R.id.radioButton2:
+                        // do operations specific to this selection
+                        Toast.makeText(MainActivity.this,"False Answer",Toast.LENGTH_LONG).show();
+                        total =total + 0;
+                        new2total = 0;
+                        Intent intent2 = new Intent(MainActivity.this, Slider2.class);
+                        intent2.putExtra("indi2", new2total);
+                        intent2.putExtra("marks", total);
+                        startActivity(intent2);
+
+                        break;
+
+                    case R.id.radioButton3:
+                        // do operations specific to this selection
+                        int new3total = 1;
+                        Toast.makeText(MainActivity.this,"right Answer",Toast.LENGTH_LONG).show();
+                        total = total+1;
+                        Intent intent3 = new Intent(MainActivity.this, Slider2.class);
+                        intent3.putExtra("marks", total);
+                        intent3.putExtra("indi3", new3total);
+                        startActivity(intent3);
+
+
+                        break;
+                    case R.id.radioButton4:
+                        Toast.makeText(MainActivity.this,"FALSE Answer",Toast.LENGTH_LONG).show();
+                        total = total + 0;
+                        new4total = 0;
+                        Intent intent4 = new Intent(MainActivity.this, Slider2.class);
+                        intent4.putExtra("indi4", new4total);
+                        intent4.putExtra("marks", total);
+                        startActivity(intent4);
+
+                        break;
+
                 }
-                else if(checkedId == R.id.radioButton3) {
-                    Toast.makeText(getApplicationContext(), "Vijay Rupani",
-                            Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "Daud Ebrahim",
-                            Toast.LENGTH_SHORT).show();
-                }
+
 
             }
         });
-//        final int checked = ans_grop.getCheckedRadioButtonId();
-         int id= ans_grop.getCheckedRadioButtonId();
+        mark1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"Total Marks Is :" +total,Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
         answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                int selectedId = ans_grop.getCheckedRadioButtonId();
-                // find which radioButton is checked by id
-
-                if(selectedId == rad_btn1.getId()) {
-                    txt_answer.setText("You chose 'Anandiben Patel' option");
-                } else if(selectedId == rad_btn2.getId()) {
-                    txt_answer.setText("You chose 'Narendra Modi' option");
-                }
-                else if(selectedId == rad_btn3.getId()) {
-                    txt_answer.setText("You chose 'Vijay Rupani' option");
-                }
-                else
-                {
-                    txt_answer.setText("You chose 'Daud Ebrahim' option");
-                }
+                txt_answer.setText("Correct Answer is Vijay Rupani");
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(MainActivity.this,Slider2.class);
-                intent.putExtra("checked",id);
-                startActivity(intent);
-
+                Intent i = new Intent(MainActivity.this, Slider2.class);
+                i.putExtra("marks", total);
+                startActivity(i);
             }
         });
+
 
     }
 

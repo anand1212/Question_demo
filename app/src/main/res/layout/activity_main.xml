@@ -82,4 +82,11 @@
         android:text="Next"
         android:layout_toRightOf="@id/btn_ans" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mark"
+        android:id="@+id/mark1"
+        android:layout_below="@+id/tet"/>
+
 </RelativeLayout>
